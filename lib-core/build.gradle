@@ -2,6 +2,8 @@ plugins {
     id 'com.android.library'
 }
 
+apply from: '../libversion.gradle'
+
 android {
     compileSdkVersion 29
     buildToolsVersion "30.0.2"

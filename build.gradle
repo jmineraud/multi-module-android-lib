@@ -23,10 +23,3 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
-// Handle the library version of all modules in one place
-subprojects {
-    ext {
-        libVersionName = "0.1.0"
-        libVersionCode = 1
-    }
-}
