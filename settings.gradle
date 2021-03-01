@@ -1,0 +1,2 @@
+include ':lib-core'
+rootProject.name = "MultiModuleAndroidLib"
