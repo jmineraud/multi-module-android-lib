@@ -1,5 +1,0 @@
-// Handle the library version of all modules in one place
-ext {
-    libVersionName = "0.1.0"
-    libVersionCode = 1
-}

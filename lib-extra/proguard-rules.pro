@@ -19,3 +19,8 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+-dontshrink
+-dontoptimize
+#-useuniqueclassmembernames
+-repackageclasses "com.jmineraud.lib"
+-applymapping "../lib-core/build/outputs/mapping/release/mapping.txt"
