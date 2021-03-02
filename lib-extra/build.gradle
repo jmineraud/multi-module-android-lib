@@ -16,7 +16,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
         buildConfigField 'int', 'VERSION_CODE',  String.valueOf(libVersionCode)
-        buildConfigField 'String', 'VERSION_NAME', '"${libVersionName}"'
+        buildConfigField 'String', 'VERSION_NAME', '"' + libVersionName + '"'
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
