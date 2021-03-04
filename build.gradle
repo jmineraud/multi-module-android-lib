@@ -22,3 +22,27 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+task assembleLib {
+    dependsOn ':lib-core:assembleRelease'
+    dependsOn ':lib-extra:assembleRelease'
+    tasks.findByPath(':lib-extra:assembleRelease').mustRunAfter ':lib-core:assembleRelease'
+}
+
+task copyLib(type: Copy) {
+    apply from: 'libversion.gradle'
+    mkdir "$buildDir/lib/${libVersionName}/"
+    subprojects.each {module ->
+        println "Copying $module.buildDir/outputs/aar/${module.name}-${libVersionName}.aar to $buildDir/lib/${libVersionName}/"
+        from file("$module.buildDir/outputs/aar/${module.name}-${libVersionName}.aar")
+        into file("$buildDir/lib/${libVersionName}/")
+    }
+}
+
+task buildLib {
+    dependsOn ':clean'
+    dependsOn ':assembleLib'
+    dependsOn ':copyLib'
+    tasks.findByPath(':assembleLib').mustRunAfter ':clean'
+    tasks.findByPath(':copyLib').mustRunAfter ':assembleLib'
+}
